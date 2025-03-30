@@ -6,69 +6,238 @@
   <title>Marwen Labidi | Links</title>
   <!-- Font Awesome for Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     /* General Styles */
-    body {
+    :root {
+      --bg-gradient-1: #0f2027;
+      --bg-gradient-2: #203a43;
+      --bg-gradient-3: #2c5364;
+      --text-primary: #ffffff;
+      --text-secondary: #e0e0e0;
+      --accent-color: #64ffda;
+      --accent-hover: #00e5ff;
+      --card-bg: rgba(255, 255, 255, 0.08);
+      --card-hover: rgba(255, 255, 255, 0.12);
+      --sponsor-bg: rgba(100, 255, 218, 0.1);
+      --sponsor-hover: rgba(100, 255, 218, 0.2);
+      --separator: rgba(100, 255, 218, 0.3);
+    }
+
+    * {
       margin: 0;
       padding: 0;
-      font-family: 'Arial', sans-serif;
-      background: linear-gradient(135deg, #1a1a1a, #2c3e50);
-      color: #fff;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, var(--bg-gradient-1), var(--bg-gradient-2), var(--bg-gradient-3));
+      color: var(--text-primary);
       display: flex;
       justify-content: center;
       align-items: center;
       min-height: 100vh;
       text-align: center;
+      padding: 20px;
     }
 
     .container {
-      max-width: 400px;
+      max-width: 450px;
       width: 100%;
-      padding: 20px;
+      padding: 30px;
+      background: rgba(15, 32, 39, 0.5);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     }
 
     h1 {
       font-size: 2.5rem;
-      margin-bottom: 20px;
+      font-weight: 700;
+      margin-bottom: 5px;
+      background: linear-gradient(to right, #ffffff, var(--accent-color));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
       animation: fadeIn 2s ease-in-out;
     }
 
+    h2 {
+      margin-top: 0;
+      margin-bottom: 15px;
+      font-size: 1.1rem;
+      font-weight: 400;
+      opacity: 0.85;
+      letter-spacing: 1px;
+    }
+
+    .profile-pic-container {
+      margin-bottom: 15px;
+      position: relative;
+      display: inline-block;
+    }
+
     .profile-pic {
-      width: 120px;
-      height: 120px;
+      width: 130px;
+      height: 130px;
       border-radius: 50%;
-      border: 4px solid #fff;
+      border: 3px solid var(--accent-color);
+      object-fit: cover;
       animation: zoomIn 1.5s ease-in-out;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .profile-pic-glow {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: transparent;
+      border: 3px solid transparent;
+      animation: glowPulse 3s infinite;
+    }
+
+    .contact-info {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-bottom: 20px;
+      font-size: 0.9rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .contact-item i {
+      color: var(--accent-color);
     }
 
     .links {
       display: flex;
       flex-direction: column;
-      gap: 15px;
+      gap: 12px;
     }
 
     .link {
-      background: rgba(255, 255, 255, 0.1);
+      background: var(--card-bg);
       padding: 15px;
-      border-radius: 10px;
+      border-radius: 12px;
       text-decoration: none;
-      color: #fff;
-      font-size: 1.1rem;
-      transition: transform 0.3s ease, background 0.3s ease;
+      color: var(--text-primary);
+      font-size: 1rem;
+      transition: all 0.3s ease;
       animation: slideUp 1s ease-in-out;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
+      gap: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
     }
 
     .link:hover {
-      background: rgba(255, 255, 255, 0.2);
+      background: var(--card-hover);
       transform: translateY(-5px);
+      box-shadow: 0 7px 20px rgba(0, 0, 0, 0.2);
+      border-color: var(--accent-color);
     }
 
     .link i {
       font-size: 1.5rem;
+      color: var(--accent-color);
+      transition: transform 0.3s ease;
+    }
+
+    .link:hover i {
+      transform: scale(1.2);
+    }
+
+    /* Sponsor Section Styles */
+    .sponsor-section {
+      margin-bottom: 30px;
+      animation: fadeIn 1.5s ease-in-out;
+      padding: 20px;
+      background: var(--sponsor-bg);
+      border-radius: 15px;
+      border: 1px solid var(--accent-color);
+    }
+
+    .sponsor-title {
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+      color: var(--accent-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-weight: 600;
+    }
+
+    .sponsor-title i {
+      animation: pulse 1.5s infinite;
+    }
+
+    .sponsor-links {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .sponsor-link {
+      background: var(--sponsor-bg);
+      padding: 10px 15px;
+      border-radius: 30px;
+      text-decoration: none;
+      color: var(--text-primary);
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border: 1px solid rgba(100, 255, 218, 0.3);
+      font-size: 0.9rem;
+    }
+
+    .sponsor-link:hover {
+      background: var(--sponsor-hover);
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      border-color: var(--accent-color);
+    }
+
+    .sponsor-link i {
+      color: var(--accent-color);
+    }
+
+    .separator {
+      height: 2px;
+      background: linear-gradient(to right, transparent, var(--separator), transparent);
+      margin: 25px 0;
+    }
+
+    /* Section Heading */
+    .section-heading {
+      margin-bottom: 15px;
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--accent-color);
+      letter-spacing: 1px;
+    }
+
+    /* Footer */
+    .footer {
+      margin-top: 30px;
+      font-size: 0.8rem;
+      opacity: 0.7;
     }
 
     /* Animations */
@@ -86,18 +255,66 @@
       from { transform: translateY(20px); opacity: 0; }
       to { transform: translateY(0); opacity: 1; }
     }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes glowPulse {
+      0% { box-shadow: 0 0 5px 0px var(--accent-color); }
+      50% { box-shadow: 0 0 20px 3px var(--accent-color); }
+      100% { box-shadow: 0 0 5px 0px var(--accent-color); }
+    }
   </style>
 </head>
 <body>
   <div class="container">
-    <!-- Add your profile picture here -->
-    <img src="https://media.licdn.com/dms/image/v2/D4D03AQHk_d5EscGcpA/profile-displayphoto-shrink_400_400/B4DZQjGpWHG0Ak-/0/1735755735313?e=2147483647&v=beta&t=dpxmo6dv-CA5ehd4hza82qlVuCVbdeV53rNtmBRHdPA" alt="Profile Picture" class="profile-pic">
+    <!-- Profile Information -->
+    <div class="profile-pic-container">
+        <img src="https://media.licdn.com/dms/image/v2/D4D03AQHk_d5EscGcpA/profile-displayphoto-shrink_400_400/B4DZQjGpWHG0Ak-/0/1735755735313?e=2147483647&v=beta&t=dpxmo6dv-CA5ehd4hza82qlVuCVbdeV53rNtmBRHdPA" alt="Profile Picture" class="profile-pic">
+      <div class="profile-pic-glow"></div>
+    </div>
     <h1>Marwen Labidi</h1>
-	<h2>Senior FrontEnd React Developer</h2>
-  <p style="margin-right: 10px;">&#x1F4E7; marwenlabidi.dev@gmail.com</p>
-  <p>&#x1F4DE; +21623432113</p>
+    <h2>Senior FrontEnd React Developer</h2>
+    
+    <div class="contact-info">
+      <div class="contact-item">
+        <i class="fas fa-envelope"></i>
+        <span>marwenlabidi.dev@gmail.com</span>
+      </div>
+      <div class="contact-item">
+        <i class="fas fa-phone"></i>
+        <span>+21623432113</span>
+      </div>
+    </div>
+
+    <!-- Sponsor Section -->
+    <div class="sponsor-section">
+      <div class="sponsor-title">
+        <i class="fas fa-heart"></i>
+        Support My Work
+      </div>
+      <div class="sponsor-links">
+        <a href="https://github.com/sponsors/MarwenLabidi" class="sponsor-link" target="_blank">
+          <i class="fab fa-github"></i> GitHub Sponsors
+        </a>
+        <a href="https://buymeacoffee.com/marwenlabidi" class="sponsor-link" target="_blank">
+          <i class="fas fa-coffee"></i> Buy Me A Coffee
+        </a>
+        <a href="https://ba9chich.com/en/marwenlabidi" class="sponsor-link" target="_blank">
+          <i class="fas fa-hand-holding-heart"></i> Ba9chich
+        </a>
+      </div>
+    </div>
+
+    <div class="separator"></div>
+
+    <!-- Links Section -->
+    <div class="section-heading">My Professional Links</div>
     <div class="links">
-	   <a href="https://marwenlabidi.github.io/resume/" class="link" target="_blank">
+      <a href="https://marwenlabidi.github.io/resume/" class="link" target="_blank">
         <i class="fas fa-file-alt"></i> Download My Resume
       </a>
       <a href="https://www.linkedin.com/in/marwenlabidi/" class="link" target="_blank">
@@ -109,14 +326,12 @@
       <a href="https://www.youtube.com/@marwenlabidi_dev" class="link" target="_blank">
         <i class="fab fa-youtube"></i> YouTube
       </a>
-   
       <a href="https://marwenlabidi.hashnode.dev/" class="link" target="_blank">
         <i class="fas fa-blog"></i> Hashnode Blog
       </a>
       <a href="https://www.figma.com/@marwenlabidi" class="link" target="_blank">
         <i class="fab fa-figma"></i> Figma
       </a>
-
       <a href="https://codepen.io/MarwenLabidi" class="link" target="_blank">
         <i class="fab fa-codepen"></i> CodePen
       </a>
@@ -129,7 +344,10 @@
       <a href="https://app.daily.dev/marwenlabidi" class="link" target="_blank">
         <i class="fas fa-globe"></i> Daily.dev
       </a>
+    </div>
 
+    <div class="footer">
+      © 2025 Marwen Labidi - All Rights Reserved
     </div>
   </div>
 </body>
