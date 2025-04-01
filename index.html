@@ -86,20 +86,8 @@
       border-radius: 50%;
       border: 3px solid var(--accent-color);
       object-fit: cover;
-      animation: zoomIn 1.5s ease-in-out;
+      animation: zoomIn 1.5s ease-in-out, glowPulse 3s infinite;
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    .profile-pic-glow {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      background: transparent;
-      border: 3px solid transparent;
-      animation: glowPulse 3s infinite;
     }
 
     .contact-info {
@@ -274,7 +262,6 @@
     <!-- Profile Information -->
     <div class="profile-pic-container">
         <img src="https://media.licdn.com/dms/image/v2/D4D03AQHk_d5EscGcpA/profile-displayphoto-shrink_400_400/B4DZQjGpWHG0Ak-/0/1735755735313?e=2147483647&v=beta&t=dpxmo6dv-CA5ehd4hza82qlVuCVbdeV53rNtmBRHdPA" alt="Profile Picture" class="profile-pic">
-      <div class="profile-pic-glow"></div>
     </div>
     <h1>Marwen Labidi</h1>
     <h2>Senior FrontEnd React Developer</h2>
